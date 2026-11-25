@@ -1,0 +1,23 @@
+# Amazon FBA Reimbursement Policy Windows
+# Used by scripts/reconcile_fba.py to gate open discrepancies deterministically.
+
+policy_version: "2026-amazon-fba-reimbursement-windows"
+urgent_days_remaining: 14
+max_ids_per_case: 5
+
+windows:
+  fc_lost_damaged:
+    label: "Fulfillment Center Lost or Damaged"
+    min_days: 1
+    max_days: 60
+    policy_reference: "FBA Inventory Reimbursement Policy - Fulfillment Center Operations (60-day claim window)"
+  customer_return:
+    label: "Unreturned Customer Refund"
+    min_days: 45
+    max_days: 105
+    policy_reference: "FBA Customer Returns Reimbursement Policy (45-to-105-day claim window)"
+  removal:
+    label: "FBA Removal Order Discrepancy"
+    min_days: 15
+    max_days: 75
+    policy_reference: "FBA Removal Order Reimbursement Policy (15-to-75-day claim window)"
